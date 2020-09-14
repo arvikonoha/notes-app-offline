@@ -1,13 +1,361 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url(./Gilroy-Bold.woff);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'Gilroy Medium';
+  src: url(./Gilroy-Medium.woff);
+}
+
+* {
+  color: #0000008c;
+  padding: 0;
+  margin: 0;
+  font-family: 'Gilroy Medium', sans-serif;
+}
+
+.list-header-typo {
+
+  font-family: 'Gilroy';
+}
+
+h2 {
+  color: #00000091;
+  margin-top: 8px;
+  font-weight: normal;
+  font-family: 'Gilroy', sans-serif;
+}
+
+.flex-basis-30 {
+  flex: 300px;
+}
+
+h3 {
+  color: #000000a8;
+  margin-top: 4px;
+  font-weight: normal;
+  font-family: 'Gilroy', sans-serif;
+}
+
+.strikeout {
+  color: #00000038 !important;
+  font-size: 1em;
+  line-height: 1em;
+  position: relative;
+}
+
+.strikeout::after {
+  border-bottom: 0.125em solid #0000006e;
+  content: "";
+  left: 0;
+  margin-top: calc(0.125em / 2 * -1);
+  position: absolute;
+  right: 0;
+  top: 60%;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  font-size: 20px;
+  color: #00000052;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  position: absolute;
+  font-size: 20px;
+  padding: 5px;
+  right: 8px;
+}
+
+.edit-btn i,
+.list-header i {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #0000003f;
+  border-radius: 50px;
+  color: #0000009f;
+  margin: auto 4px;
+  font-size: 14px;
+}
+
+.edit-btn i.fa-trash:hover {
+  position: relative;
+  background-color: #ce13133f;
+  color: #df1d1d9f;
+}
+
+.edit-btn i.fa-trash:hover:after {
+  font-family: "Gilroy";
+  color: #df1d1d9f;
+  font-weight: normal;
+  position: absolute;
+  left: -2px;
+  bottom: -16px;
+  font-size: 12px;
+  content: "Delete";
+}
+
+
+.list-header i.fa-check {
+  position: relative;
+  background-color: #23ce133f;
+  color: #28690e9f;
+  transition: .2s ease-in-out all;
+}
+
+.list-header i.fa-check:hover:after {
+  font-family: "Gilroy";
+  color: #1750118e;
+  font-weight: normal;
+  position: absolute;
+  left: -12px;
+  bottom: -14px;
+  font-size: 12px;
+  content: "Completed";
+}
+
+.list-header i.fa-minus-circle {
+  position: relative;
+  background-color: #1316ce3f;
+  color: #0e26699f;
+  transition: .2s ease-in-out all;
+}
+
+.list-header i.fa-minus-circle:hover::after {
+  font-family: "Gilroy";
+  color: #112c508e;
+  font-weight: normal;
+  position: absolute;
+  left: -12px;
+  bottom: -14px;
+  font-size: 12px;
+  content: "Incomplete";
+}
+
+.edit-btn i.fa-edit:hover {
+  position: relative;
+  background-color: #cebb133f;
+  color: #df7b1d9f;
+}
+
+.edit-btn i.fa-edit:hover:after {
+  font-family: "Gilroy";
+  color: #4f50118e;
+  font-weight: normal;
+  position: absolute;
+  left: 6px;
+  bottom: -16px;
+  font-size: 12px;
+  content: "Edit";
+}
+
+@media(max-width:800px) {
+  .edit-btn i {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
+.disp-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ls-none {
+  list-style: none;
+}
+
+.mr-32 {
+  margin: 32px;
+}
+
+.mr-16y {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.mr-8 {
+  margin: 8px;
+}
+
+.pd-16 {
+  padding: 16px;
+}
+
+.pd-32 {
+  padding: 32px;
+}
+
+.pd-8 {
+  padding: 8px;
+}
+
+@media (max-width:800px) {
+  .mr-32 {
+    margin: 16px;
+  }
+
+
+  .pd-16 {
+    padding: 12px;
+  }
+
+  .pd-32 {
+    padding: 16px;
+  }
+}
+
+.prim-clr {
+  font-family: "Gilroy";
+  color: #101facaf;
+}
+
+.list-header {
+  color: #000000a4;
+  font-size: 20px;
+  font-family: 'Gilroy';
+  border-bottom: 1px solid #00000038;
+}
+
+
+.modal {
+  z-index: 3;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  left: 0;
+  top: 0;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.modal form {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+
+@media (max-width:800px) {
+  .modal {
+    padding: 32px 0px;
+  }
+}
+
+label {
+
+  font-family: "Gilroy";
+  color: #000000b4;
+  display: inline-block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+input[type="text"] {
+
+  font-family: "Gilroy";
+  border: none;
+  border-radius: 5px;
+  background-color: #eee;
+  padding: 8px 12px;
+  width: 95%;
+  margin-bottom: 16px;
+}
+
+input[type="submit"],
+button[type="submit"] {
+
+  font-family: "Gilroy";
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: #0000006c;
+  border: none;
+  background-color: #00000017;
+  cursor: pointer;
+}
+
+textarea {
+  border: none;
+  border-radius: 5px;
+  background-color: #eee;
+  padding: 8px 12px;
+  width: 95%;
+  margin-bottom: 16px;
+}
+
+button[type="cancel"] {
+
+  font-family: "Gilroy";
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: #0000007a;
+  border: none;
+  margin-left: 8px;
+  background-color: transparent;
+}
+
+.primary-btn {
+  color: #00000077;
+  font-family: "Gilroy";
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 8px 16px;
+  border: none;
+  background-color: transparent;
+}
+
+.card {
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #00000044;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+}
+
+.wi-resp {
+  width: 80%;
+}
+
+
+.success-bg {
+  background-color: #fff;
+}
+
+.txt-hier-4 p,
+.txt-hier-4 h2,
+.txt-hier-4 h3,
+.txt-hier-4 li {
+  color: #00000038;
+  display: inline-block;
+  line-height: 1em;
+  position: relative;
+}
+
+.fl-btn-tr {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+}
+
+
+@media(max-width:800px) {
+  .fl-btn-tr {
+    position: fixed;
+    top: 54px;
+    right: 0px;
+    transform: scale(.8);
+  }
 }
